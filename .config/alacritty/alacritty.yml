@@ -1,0 +1,32 @@
+env:
+  TERM: xterm-256color
+
+window:
+  padding:
+    x: 10
+    y: 10
+
+font:
+  normal:
+    family: Mononoki Nerd Font
+    style: Regular
+
+  size: 18.0
+
+
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 5000
+  
+key_bindings:
+  - { key: Right, mods: Alt, chars: "\x1BF" }
+  - { key: Left,  mods: Alt, chars: "\x1BB" }
+  - { key: Return, mods: Command, action: ToggleFullscreen }
+
+shell:
+  program: /bin/zsh
+  args:
+    - -l
+    - -c
+    - "tmux new-session -A -s default"
