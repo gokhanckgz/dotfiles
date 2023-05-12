@@ -14,7 +14,8 @@ vim.opt.shiftwidth = 2
 vim.opt.shiftround = true
 vim.opt.expandtab = true
 
-vim.cmd [[ set noswapfile ]]
+-- disable autofold function
+vim.opt.foldlevelstart = 20
 
---Line numbers
-vim.wo.number = true
+-- disable swapfile
+vim.cmd [[ set noswapfile ]]

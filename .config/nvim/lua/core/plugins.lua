@@ -12,17 +12,14 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  'wbthomason/packer.nvim',
+  'folke/tokyonight.nvim',
   'mfussenegger/nvim-dap',
   'nvim-tree/nvim-tree.lua',
   'nvim-tree/nvim-web-devicons',
   'nvim-lualine/lualine.nvim',
   'nvim-treesitter/nvim-treesitter',
-  'bluz71/vim-nightfly-colors',
   'vim-test/vim-test',
   'lewis6991/gitsigns.nvim',
-  'preservim/vimux',
-  'christoomey/vim-tmux-navigator',
   'tpope/vim-fugitive',
   'Mofiqul/vscode.nvim',
   -- completion
@@ -31,18 +28,30 @@ local plugins = {
   'L3MON4D3/LuaSnip',
   'saadparwaiz1/cmp_luasnip',
   "rafamadriz/friendly-snippets",
-  "github/copilot.vim",
   "williamboman/mason.nvim",
   "neovim/nvim-lspconfig",
   "williamboman/mason-lspconfig.nvim",
   {'romgrk/barbar.nvim', dependencies = 'nvim-tree/nvim-web-devicons'},
   "glepnir/lspsaga.nvim",
+  --- telescope
+  "cljoly/telescope-repo.nvim",
   "nvim-telescope/telescope-live-grep-args.nvim",
   {
 	  'nvim-telescope/telescope.nvim',
 	  tag = '0.1.0',
 	  dependencies = { {'nvim-lua/plenary.nvim'}, {'nvim-telescope/telescope-live-grep-args.nvim'} }
-  }
+  },
+  "nvim-telescope/telescope-project.nvim",
+  {
+  'glepnir/dashboard-nvim',
+  event = 'VimEnter',
+  config = function()
+    require('dashboard').setup {
+      -- config
+    }
+  end,
+  dependencies = { {'nvim-tree/nvim-web-devicons'}}
+}
 }
 
 local opts = {}

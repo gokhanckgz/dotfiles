@@ -2,6 +2,7 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 require("nvim-tree").setup({
+  update_cwd = true,
   view = {
     adaptive_size = true
   },
@@ -9,7 +10,6 @@ require("nvim-tree").setup({
     always_show_folders = false
   }
 })
-
 
 local api = require('nvim-tree.api')
 
