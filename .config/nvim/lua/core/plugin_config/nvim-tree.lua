@@ -14,6 +14,7 @@ require("nvim-tree").setup({
 local api = require('nvim-tree.api')
 
 vim.keymap.set('n', '<c-n>', ':NvimTreeFindFileToggle<CR>')
+vim.keymap.set('n', '<c-e>', ':NvimTreeFocus<CR>')
 vim.keymap.set('n', '+', api.tree.change_root_to_node)
 vim.keymap.set('n', '-', api.tree.change_root_to_parent)
 

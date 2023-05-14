@@ -34,7 +34,7 @@ local plugins = {
   {'romgrk/barbar.nvim', dependencies = 'nvim-tree/nvim-web-devicons'},
   "glepnir/lspsaga.nvim",
   --- telescope
-  "cljoly/telescope-repo.nvim",
+ "cljoly/telescope-repo.nvim",
   "nvim-telescope/telescope-live-grep-args.nvim",
   {
 	  'nvim-telescope/telescope.nvim',
@@ -51,7 +51,19 @@ local plugins = {
     }
   end,
   dependencies = { {'nvim-tree/nvim-web-devicons'}}
-}
+  },
+  {
+    "folke/which-key.nvim",
+      config = function()
+        vim.o.timeout = true
+        vim.o.timeoutlen = 300
+        require("which-key").setup({
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+        })
+    end,
+  },
 }
 
 local opts = {}

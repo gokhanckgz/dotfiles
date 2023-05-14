@@ -17,5 +17,8 @@ vim.opt.expandtab = true
 -- disable autofold function
 vim.opt.foldlevelstart = 20
 
+-- set relative number
+vim.wo.relativenumber = true
+
 -- disable swapfile
 vim.cmd [[ set noswapfile ]]
