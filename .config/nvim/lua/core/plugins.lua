@@ -12,27 +12,31 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-  'folke/tokyonight.nvim',
-  'mfussenegger/nvim-dap',
-  'nvim-tree/nvim-tree.lua',
-  'nvim-tree/nvim-web-devicons',
-  'nvim-lualine/lualine.nvim',
-  'nvim-treesitter/nvim-treesitter',
-  'vim-test/vim-test',
-  'lewis6991/gitsigns.nvim',
-  'tpope/vim-fugitive',
-  'Mofiqul/vscode.nvim',
+  'sbdchd/neoformat', -- prettier
+  'folke/tokyonight.nvim', -- ui theme
+  'mfussenegger/nvim-dap', -- dap plugin for debugging
+  'nvim-tree/nvim-tree.lua', -- file explorer
+  'nvim-tree/nvim-web-devicons', -- icons 
+  'nvim-lualine/lualine.nvim', -- statusline plugin
+  'nvim-treesitter/nvim-treesitter', -- parser 
+  'vim-test/vim-test', -- for test ?
+  'lewis6991/gitsigns.nvim', -- git decorations on editor changes deletions etc.
+  'tpope/vim-fugitive', -- git integration blame etc
+  "rcarriga/nvim-dap-ui", dependencies = "mfussenegger/nvim-dap", -- debugger ui 
+  
   -- completion
-  'hrsh7th/nvim-cmp',
-  'hrsh7th/cmp-nvim-lsp',
-  'L3MON4D3/LuaSnip',
+  'hrsh7th/nvim-cmp', -- completion plugin ??
+  'hrsh7th/cmp-nvim-lsp', -- 
+  'L3MON4D3/LuaSnip', dependencies = { "rafamadriz/friendly-snippets" }, 
   'saadparwaiz1/cmp_luasnip',
   "rafamadriz/friendly-snippets",
-  "williamboman/mason.nvim",
+
+  "williamboman/mason.nvim", -- manage lsp dap etc
   "neovim/nvim-lspconfig",
   "williamboman/mason-lspconfig.nvim",
   {'romgrk/barbar.nvim', dependencies = 'nvim-tree/nvim-web-devicons'},
   "glepnir/lspsaga.nvim",
+  
   --- telescope
  "cljoly/telescope-repo.nvim",
   "nvim-telescope/telescope-live-grep-args.nvim",
