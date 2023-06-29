@@ -19,6 +19,7 @@ vim.opt.foldlevelstart = 20
 
 -- set relative number
 vim.wo.relativenumber = true
+vim.wo.number = true
 
 -- disable swapfile
 vim.cmd [[ set noswapfile ]]
