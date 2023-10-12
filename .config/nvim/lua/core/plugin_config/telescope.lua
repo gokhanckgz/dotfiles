@@ -25,6 +25,7 @@ vim.keymap.set('n', '<Space>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<Space>fh', builtin.help_tags, {})
 
 
+vim.keymap.set('n', '<C-p>', '<Cmd>Telescope<CR>', opts)
 vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
 vim.keymap.set("n", "<leader>p", ":lua require('telescope').extensions.project.project{}<CR>")
 vim.keymap.set("n", "<leader>r", ":lua require('telescope').extensions.repo.list{fd_opts=[[--ignore-file=myignorefile]]}<CR>")

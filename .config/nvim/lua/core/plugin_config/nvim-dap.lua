@@ -66,3 +66,4 @@ dap.configurations.go = {
     program = "./${relativeFileDirname}"
   } 
 }
+
