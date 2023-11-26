@@ -34,13 +34,24 @@ local plugins = {
 		dependencies = "mfussenegger/nvim-dap", -- debugger ui
 	},
 	{
+		"someone-stole-my-name/yaml-companion.nvim",
+		requires = {
+			{ "neovim/nvim-lspconfig" },
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-telescope/telescope.nvim" },
+		},
+		config = function()
+			require("telescope").load_extension("yaml_schema")
+		end,
+	},
+	{
 		"wfxr/minimap.vim",
 		build = "cargo install --locked code-minimap",
 		lazy = false,
 		cmd = { "Minimap", "MinimapClose", "MinimapToggle", "MinimapRefresh", "MinimapUpdateHighlight" },
 		init = function()
 			vim.cmd("let g:minimap_width = 10")
-			vim.cmd("let g:minimap_auto_start = 1")
+			vim.cmd("let g:minimap_auto_start = 0")
 			vim.cmd("let g:minimap_auto_start_win_enter = 1")
 			vim.cmd("let g:minimap_git_colors = 1")
 		end,
@@ -53,11 +64,16 @@ local plugins = {
 	-- completion
 	"hrsh7th/nvim-cmp", -- completion plugin ??
 	"hrsh7th/cmp-nvim-lsp", --
-	"L3MON4D3/LuaSnip",
-	dependencies = { "rafamadriz/friendly-snippets" },
+	{
+		"L3MON4D3/LuaSnip",
+		-- follow latest release.
+		version = "v2.*", -- Replace <CurrentMajor> by the latest released major (first number of latest release)
+		-- install jsregexp (optional!).
+		build = "make install_jsregexp",
+		dependencies = { "rafamadriz/friendly-snippets" },
+	},
 	"saadparwaiz1/cmp_luasnip",
 	"rafamadriz/friendly-snippets",
-
 	"williamboman/mason.nvim", -- manage lsp dap etc
 	"neovim/nvim-lspconfig",
 	"williamboman/mason-lspconfig.nvim",
@@ -110,3 +126,4 @@ require("lazy").setup(plugins, opts)
 -- notify
 
 vim.notify = require("notify")
+

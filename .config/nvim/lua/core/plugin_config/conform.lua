@@ -1,4 +1,5 @@
-require("conform").setup({
+local conform = require("conform")
+conform.setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		-- Conform will run multiple formatters sequentially
@@ -16,9 +17,14 @@ require("conform").setup({
 
 		yaml = { "yamlfmt" },
 	},
-	format_on_save = {
-		-- I recommend these options. See :help conform.format for details.
-		lsp_fallback = true,
-		timeout_ms = 500,
-	},
+	---format_on_save = {
+	-- I recommend these options. See :help conform.format for details.
+	---lsp_fallback = true,
+	---timeout_ms = 500,
+	---},
 })
+
+
+vim.keymap.set("n", "V", function ()
+  conform.format({ async= true, lsp_fallback = true})
+end )
