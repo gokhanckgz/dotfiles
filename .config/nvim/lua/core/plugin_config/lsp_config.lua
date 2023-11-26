@@ -1,5 +1,9 @@
 require("mason-lspconfig").setup()
 
+local configs = require('lspconfig.configs')
+local lspconfig = require('lspconfig')
+local util = require('lspconfig.util')
+
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 require("lspsaga").setup({
@@ -20,7 +24,7 @@ vim.keymap.set({ "n", "v" }, "<leader>d", "<cmd>Lspsaga show_line_diagnostics<CR
 vim.keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", { silent = true })
 vim.keymap.set("n", "<leader>o", "<cmd>Lspsaga outline<CR>")
 
-require("lspconfig").lua_ls.setup({
+lspconfig.lua_ls.setup({
 	capabilities = capabilities,
 	settings = {
 		Lua = {
@@ -37,17 +41,15 @@ require("lspconfig").lua_ls.setup({
 	},
 })
 
-require("lspconfig").jsonnet_ls.setup({})
+lspconfig.jsonnet_ls.setup({})
 
-require("lspconfig").bashls.setup({})
+lspconfig.bashls.setup({})
 
-require("lspconfig").pyright.setup({
+lspconfig.pyright.setup({
 	capabilities = capabilities,
 })
 
-local util = require("lspconfig/util")
-
-require("lspconfig").gopls.setup({
+lspconfig.gopls.setup({
 	cmd = { "gopls", "serve" },
 	filetypes = { "go", "gomod" },
 	root_dir = util.root_pattern("go.work", "go.mod", ".git"),
@@ -61,14 +63,32 @@ require("lspconfig").gopls.setup({
 	},
 })
 
-require("lspconfig").tsserver.setup({
+lspconfig.tsserver.setup({
 	capabilities = capabilities,
 })
 
-require("lspconfig").html.setup({
+lspconfig.html.setup({
 	capabilities = capabilities,
 })
 
-require("lspconfig").terraformls.setup({
+lspconfig.terraformls.setup({
 	capabilities = capabilities,
 })
+
+
+if not configs.helm_ls then
+  configs.helm_ls = {
+    default_config = {
+      cmd = {"helm_ls", "serve"},
+      filetypes = {'helm'},
+      root_dir = function(fname)
+        return util.root_pattern('Chart.yaml')(fname)
+      end,
+    },
+  }
+end
+
+lspconfig.helm_ls.setup {
+  filetypes = {"helm"},
+  cmd = {"helm_ls", "serve"},
+}
