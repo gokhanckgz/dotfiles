@@ -35,7 +35,7 @@ local plugins = {
 	},
 	{
 		"someone-stole-my-name/yaml-companion.nvim",
-		requires = {
+		dependencies = {
 			{ "neovim/nvim-lspconfig" },
 			{ "nvim-lua/plenary.nvim" },
 			{ "nvim-telescope/telescope.nvim" },
@@ -44,6 +44,7 @@ local plugins = {
 			require("telescope").load_extension("yaml_schema")
 		end,
 	},
+  {'kevinhwang91/nvim-ufo', dependencies = 'kevinhwang91/promise-async'},
 	{
 		"wfxr/minimap.vim",
 		build = "cargo install --locked code-minimap",
@@ -95,7 +96,7 @@ local plugins = {
 	},
 	{
 		"nvim-telescope/telescope.nvim",
-		tag = "0.1.0",
+		tag = "0.1.4",
 		dependencies = { { "nvim-lua/plenary.nvim" }, { "nvim-telescope/telescope-live-grep-args.nvim" } },
 	},
 	"nvim-telescope/telescope-project.nvim",

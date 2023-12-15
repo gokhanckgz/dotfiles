@@ -37,9 +37,7 @@ dap.adapters.go = {
   executable = {
     command = vim.fn.stdpath("data") .. '/mason/bin/dlv',
     args = { "dap", "-l", "127.0.0.1:${port}" },
-  },
-
-  delve
+  }
 }
 
 -- https://github.com/go-delve/delve/blob/master/Documentation/usage/dlv_dap.md
@@ -64,6 +62,6 @@ dap.configurations.go = {
     request = "launch",
     mode = "test",
     program = "./${relativeFileDirname}"
-  } 
+  }
 }
 

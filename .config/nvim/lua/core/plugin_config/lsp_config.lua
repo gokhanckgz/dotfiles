@@ -1,8 +1,8 @@
 require("mason-lspconfig").setup()
 
-local configs = require('lspconfig.configs')
-local lspconfig = require('lspconfig')
-local util = require('lspconfig.util')
+local configs = require("lspconfig.configs")
+local lspconfig = require("lspconfig")
+local util = require("lspconfig.util")
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
@@ -75,20 +75,19 @@ lspconfig.terraformls.setup({
 	capabilities = capabilities,
 })
 
-
 if not configs.helm_ls then
-  configs.helm_ls = {
-    default_config = {
-      cmd = {"helm_ls", "serve"},
-      filetypes = {'helm'},
-      root_dir = function(fname)
-        return util.root_pattern('Chart.yaml')(fname)
-      end,
-    },
-  }
+	configs.helm_ls = {
+		default_config = {
+			cmd = { "helm_ls", "serve" },
+			filetypes = { "helm" },
+			root_dir = function(fname)
+				return util.root_pattern("Chart.yaml")(fname)
+			end,
+		},
+	}
 end
 
-lspconfig.helm_ls.setup {
-  filetypes = {"helm"},
-  cmd = {"helm_ls", "serve"},
-}
+lspconfig.helm_ls.setup({
+	filetypes = { "helm" },
+	cmd = { "helm_ls", "serve" },
+})
