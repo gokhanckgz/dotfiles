@@ -8,10 +8,10 @@ window:
 
 font:
   normal:
-    family: Mononoki Nerd Font
+    family: Hack Nerd Font
     style: Regular
 
-  size: 18
+  size: 22
 
 
 scrolling:
