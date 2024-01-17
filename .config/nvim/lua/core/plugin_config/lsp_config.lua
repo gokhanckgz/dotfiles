@@ -1,4 +1,6 @@
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup{
+  ensure_installed = { "lua_ls", "bashls", "dockerls", "docker_compose_language_service", "gopls", "golangci_lint_ls", "helm_ls", "jsonls", "pyright", "taplo", "terraformls", "tflint", "yamlls" },
+}
 
 local configs = require("lspconfig.configs")
 local lspconfig = require("lspconfig")
