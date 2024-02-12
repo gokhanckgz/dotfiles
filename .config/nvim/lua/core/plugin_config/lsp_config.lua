@@ -43,6 +43,8 @@ lspconfig.lua_ls.setup({
 	},
 })
 
+lspconfig.tflint.setup({})
+
 lspconfig.jsonnet_ls.setup({})
 
 lspconfig.bashls.setup({})
@@ -92,4 +94,20 @@ end
 lspconfig.helm_ls.setup({
 	filetypes = { "helm" },
 	cmd = { "helm_ls", "serve" },
+})
+
+
+vim.api.nvim_create_autocmd("CursorHold", {
+  buffer = bufnr,
+  callback = function()
+    local opts = {
+      focusable = false,
+      close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+      border = 'rounded',
+      source = 'always',
+      prefix = ' ',
+      scope = 'cursor',
+    }
+    vim.diagnostic.open_float(nil, opts)
+  end
 })
