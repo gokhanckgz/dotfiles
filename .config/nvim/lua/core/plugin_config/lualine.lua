@@ -16,9 +16,10 @@ require('lualine').setup {
     lualine_a = {
       {
         'filename',
-        path = 3,
+        path = 1,
       }
     },
+    lualine_y = { 'data', "require'lsp-status'.status()" },
     lualine_x = {
       get_schema
     }

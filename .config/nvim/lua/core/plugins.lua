@@ -28,10 +28,14 @@ local plugins = {
   "lewis6991/gitsigns.nvim",         -- git decorations on editor changes deletions etc.
   "tpope/vim-fugitive",              -- git integration blame etc
   "kkharji/sqlite.lua",
+  "Afourcat/treesitter-terraform-doc.nvim",
   "prochri/telescope-all-recent.nvim",
   {
     "rcarriga/nvim-dap-ui",
-    dependencies = "mfussenegger/nvim-dap", -- debugger ui
+     dependencies = {
+	{ "mfussenegger/nvim-dap" },
+	{ "nvim-neotest/nvim-nio" },
+     },
   },
   {
     "someone-stole-my-name/yaml-companion.nvim",
