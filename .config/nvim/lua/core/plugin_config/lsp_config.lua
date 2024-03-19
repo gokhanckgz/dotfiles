@@ -103,6 +103,9 @@ lspconfig.helm_ls.setup({
   cmd = { "helm_ls", "serve" },
 })
 
+require'lspconfig'.groovyls.setup{}
+
+
 
 vim.api.nvim_create_autocmd("CursorHold", {
   buffer = bufnr,

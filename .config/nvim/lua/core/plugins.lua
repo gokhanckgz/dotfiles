@@ -27,6 +27,7 @@ local plugins = {
   "vim-test/vim-test",               -- for test ?
   "lewis6991/gitsigns.nvim",         -- git decorations on editor changes deletions etc.
   "tpope/vim-fugitive",              -- git integration blame etc
+  "sindrets/diffview.nvim",
   "kkharji/sqlite.lua",
   "Afourcat/treesitter-terraform-doc.nvim",
   "prochri/telescope-all-recent.nvim",
